@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Sign Language</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
+
+    <!-- Video JS -->
+    <link rel="stylesheet" href="./node_modules/video.js/dist/video-js.min.css">
+    <link rel="stylesheet" href="./node_modules/@videojs/themes/dist/fantasy/index.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+            <a class="navbar-brand mr-4" href="/">Indian Sign Language</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="/">Home</a>
+                </div>
+
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="/about">About</a>
+                </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+
+    <main role="main" class="container">
+        <div class="row">
+            <!-- Video Content -->
+            <div class="col-md-8">
+                <div class="video-section">
+                    <video
+                        id="my-video"
+                        class="video-js vjs-theme-fantasy"
+                        controls
+                        preload="auto"
+                        width="750"
+                        height="421.88"
+                        data-setup="{}"
+                        autoplay
+                    >
+                        <source id="my-video-src" src="./videos/welcome.mp4" type="video/mp4" />
+                        <p class="vjs-no-js">
+                            To view this video please enable JavaScript, and consider upgrading to a
+                            web browser that
+                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                        </p>
+                    </video>
+                </div>
+                
+                <hr>
+
+                <!-- Author Name -->
+                <div class="text-center">
+                    <h3 id="sign-heading"></h3>
+                    <p id="sign-author"></p>
+                    <a id="original-video-link" href="#" target="_blank">Original</a>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <div class="content-section">
+                    <h3>Search Sign Language</h3>
+                    <hr>
+                    <form id="sign-form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input 
+                                    type="search" 
+                                    name="sign-input" 
+                                    id="sign-input" 
+                                    list="sign-list-options" 
+                                    placeholder="Type Here" 
+                                    class="form-control"
+                                    autocomplete="off"
+                                >
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning" type="submit">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <datalist id="sign-list-options">
+                                <!-- Guhan -->
+                                <option value="How Much ?"></option>
+                                <option value="Stupid"></option>
+                                <option value="Hot"></option>
+                                <option value="Buddh Purnima"></option>
+                                <option value="Hello, what is your name ?"></option>
+                                <option value="Gardener"></option>
+
+                                <!-- Akash -->
+                                <option value="Calculator"></option>
+                                <option value="College"></option>
+                                <option value="I am fine"></option>
+                                <option value="Mountain"></option>
+                                <option value="Planet"></option>
+                                <option value="Thief"></option>
+                            </datalist>
+                        </div>
+                    </form>
+
+                    <!-- Sidebar Sign Lists -->
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-light">Buddh Purnima</li>
+                        <li class="list-group-item">Calculator</li>
+                        <li class="list-group-item">College</li>
+                        <li class="list-group-item list-group-item-light">Gardener</li>
+                        <li class="list-group-item list-group-item-light">Hello, what is your name ?</li>
+                        <li class="list-group-item list-group-item-light">Hot</li>
+                        <li class="list-group-item">I am fine</li>
+                        <li class="list-group-item">Mountain</li>
+                        <li class="list-group-item">Planet</li>
+                        <li class="list-group-item list-group-item-light">Stupid</li>
+                        <li class="list-group-item">Thief</li>
+                        <li class="list-group-item list-group-item-light">How Much ?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- jQuery -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- video.js -->
+    <script src="./node_modules/video.js/dist/video.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        var signVideos = {
+            'How Much ?': { src: './videos/guhan/how_much.mp4', author: 'Guhan M', originalVideo: 'http://talkinghands.co.in/sites/default/files/islvideos/how_much.webm' },
+            'Stupid': { src: './videos/guhan/stupid.mp4', author: 'Guhan M', originalVideo: 'http://talkinghands.co.in/sites/default/files/islvideos/Stupid.webm' },
+            'Hot': { src: './videos/guhan/hot.mp4', author: 'Guhan M', originalVideo: 'http://talkinghands.co.in/sites/default/files/islvideos/Hot_0.webm' },
+            'Buddh Purnima': { src: './videos/guhan/buddh_purnima.mp4', author: 'Guhan M', originalVideo: 'http://talkinghands.co.in/sites/default/files/islvideos/Buddh_Pornima.webm' },
+            'Hello, what is your name ?': { src: './videos/guhan/hello_what_is_your_name.mp4', author: 'Guhan M', originalVideo: 'https://youtu.be/l3elQUZynSI' },
+            'Gardener': { src: './videos/guhan/gardener.mp4', author: 'Guhan M', originalVideo: 'http://talkinghands.co.in/sites/default/files/islvideos/Gardener.webm' },
+
+            'Calculator': { src: './videos/akash/calculator.mp4', author: 'Akash Hooda', originalVideo: 'http://talkinghands.co.in/sites/default/files/islvideos/Calculator.webm' },
+            'College': { src: './videos/akash/college.mp4', author: 'Akash Hooda', originalVideo: 'http://talkinghands.co.in/sites/default/files/islvideos/College.webm' },
+            'I am fine': { src: './videos/akash/iamFine.mp4', author: 'Akash Hooda', originalVideo: 'https://youtu.be/K8bB5A38ZTs' },
+            'Mountain': { src: './videos/akash/mountain.mp4', author: 'Akash Hooda', originalVideo: 'https://youtu.be/1hzdxU-RztQ' },
+            'Planet': { src: './videos/akash/planet.mp4', author: 'Akash Hooda', originalVideo: 'http://talkinghands.co.in/sites/default/files/islvideos/Planet.webm' },
+            'Thief': { src: './videos/akash/theif.mp4', author: 'Akash Hooda', originalVideo: 'http://talkinghands.co.in/sites/default/files/islvideos/Thief.webm' },
+        }
+
+        $('#sign-form').on('submit', function (e) {
+            e.preventDefault();
+
+            // Get Sign input tag ang Sign value
+            var signInput = $('#sign-input');
+            var signValue = signInput.val();
+
+            // Get video location
+            var videoLocation = signVideos[signValue].src;
+            var videoAuthor = signVideos[signValue].author;
+            var originalVideo = signVideos[signValue].originalVideo;
+            console.log(videoLocation);
+
+            $('#sign-heading').html(signValue);
+            $('#sign-author').html('Done By: <span class="text-info">' + videoAuthor + '</span>');
+            $('#original-video-link').attr('href', originalVideo);
+
+            var myPlayer = videojs('my-video');
+            myPlayer.src(videoLocation);
+            myPlayer.play();
+        });
+
+        
+
+        $('.list-group-item').on('click', function(e) {
+            console.log(e.target);
+            let signValue = $(e.target).html();
+
+            $('#sign-input').val(signValue);
+            $('#sign-form').submit();
+        });
+    </script>
+</body>
+</html>
